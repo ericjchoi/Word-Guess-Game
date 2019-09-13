@@ -1,0 +1,14 @@
+/* HW3 Word Guess Game */
+h1 {
+    font-size: 2.5rem;
+}
+p {
+    font-size: 1.5rem;
+}
+#result0, #result1 {
+    font-size: 1.8rem;
+}
+.gameFrame {
+    width : 60%;
+    margin: auto;
+}
