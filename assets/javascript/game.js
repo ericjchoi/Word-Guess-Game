@@ -21,6 +21,7 @@ var outArray = [];
 var guess = [];
 var guessOut = [];
 var attempt = 0;
+var duplicate = false;
 
 /* Function for Computer decides name of fruit */
 function decideFruit() {
@@ -86,7 +87,7 @@ function check() {
 
 /* Function for Updating Letters Already Guessed */
 function guessUpdate() {
-    var duplicate = false;
+    duplicate = false;
     guess[attempt] = keyPressed;
     for (var l = 0; l < guess.length; l++) {
         if (attempt !== l) {
@@ -97,7 +98,8 @@ function guessUpdate() {
     if (duplicate === false) {
         guessOut[attempt++] = keyPressed;
     }
-    document.getElementById("letterGuessedID").innerHTML = guessOut.join(" ");
+    var tempUpper = guessOut.join(" ");
+    document.getElementById("letterGuessedID").innerHTML = tempUpper.toUpperCase();
 }
 
 /* Game starts here with keyboard press */
@@ -113,8 +115,9 @@ document.onkeypress = function (event) {
     keyPressed = event.key.toLowerCase();
     guessUpdate();
     check();
-    document.getElementById("guessRemainingID").innerHTML = --guessRemaining;
-
+    if (duplicate === false) {
+        document.getElementById("guessRemainingID").innerHTML = --guessRemaining;
+    }
     if (outArray.toString() === compare.toString()) {
         document.getElementById("winsID").innerHTML = ++wins;
         var tempOut = decidedFruit;
@@ -127,6 +130,7 @@ document.onkeypress = function (event) {
         document.getElementById("guessRemainingID").innerHTML = 0;
         document.getElementById("result0").innerHTML = "SORRY, YOU LOST !! The Answer was " + decidedFruit + ".";
         document.getElementById("result1").innerHTML = "Press Any Key to Restart";
+        guessOut = [];
     }
     if (guessRemaining === -1) {
         initialize();
