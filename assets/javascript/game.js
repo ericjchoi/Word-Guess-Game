@@ -47,7 +47,7 @@ function currentWordUnderlines() {
 
 function initialize() {
     correct = false;
-    guessRemaining = 30;
+    guessRemaining = 20;
     decidedFruit = "";
     underlineArray = [];
     keyPressed = "";
