@@ -12,7 +12,7 @@ var fruit = ["apple", "apricot", "banana", "blackberry", "blueberry",
 var count = 0;
 var wins = 0;
 var correct = false;
-var guessRemaining = 30;
+var guessRemaining = 20;
 var decidedFruit = "";
 var underlineArray = [];
 var keyPressed = "";
@@ -47,7 +47,7 @@ function currentWordUnderlines() {
 
 function initialize() {
     correct = false;
-    guessRemaining = 30;
+    guessRemaining = 20;
     decidedFruit = "";
     underlineArray = [];
     keyPressed = "";
